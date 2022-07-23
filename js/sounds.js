@@ -34,7 +34,11 @@ export default function(){
     audioForest,
     audioRain,
     audioCoffee,
-    audioFire
+    audioFire,
+    bgAudioForest,
+    bgAudioRain,
+    bgAudioCoffeeShop,
+    bgAudioFireplace
   }
 }
 

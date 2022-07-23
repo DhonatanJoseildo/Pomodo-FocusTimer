@@ -16,6 +16,8 @@ const buttonFireplace = document.querySelector('.fireplace')
 let timerTimeOut;
 let minutes = Number(minutesDisplay.textContent)
 
+const sounds = Sounds()
+
 function countDown() {
   timerTimeOut = setTimeout(() => {
     let seconds = Number(secondsDisplay.textContent)
@@ -89,15 +91,24 @@ buttonForest.addEventListener('click', () => {
   buttonCoffeeShop.classList.remove('check')
   buttonFireplace.classList.remove('check')
 
-  Sounds().audioForest()
+  if (buttonForest.classList.contains('check')) {
+    sounds.audioForest()
+  }else{
+    sounds.bgAudioForest.pause()
+  }
 })
+
 buttonRain.addEventListener('click', () => {
   buttonRain.classList.toggle('check')
   buttonForest.classList.remove('check')
   buttonCoffeeShop.classList.remove('check')
   buttonFireplace.classList.remove('check')
 
-  Sounds().audioRain()
+  if (buttonRain.classList.contains('check')) {
+    sounds.audioRain()
+  }else{
+    sounds.bgAudioRain.pause()
+  }
 })
 buttonCoffeeShop.addEventListener('click', () => {
   buttonCoffeeShop.classList.toggle('check')
@@ -105,7 +116,11 @@ buttonCoffeeShop.addEventListener('click', () => {
   buttonRain.classList.remove('check')
   buttonFireplace.classList.remove('check')
 
-  Sounds().audioCoffee()
+  if (buttonCoffeeShop.classList.contains('check')) {
+    sounds.audioCoffee()
+  }else{
+    sounds.bgAudioCoffeeShop.pause()
+  }
 })
 buttonFireplace.addEventListener('click', () => {
   buttonFireplace.classList.toggle('check')
@@ -113,5 +128,9 @@ buttonFireplace.addEventListener('click', () => {
   buttonRain.classList.remove('check')
   buttonCoffeeShop.classList.remove('check')
 
-  Sounds().audioFire()
+  if (buttonFireplace.classList.contains('check')) {
+    sounds.audioFire()
+  }else{
+    sounds.bgAudioFireplace.pause()
+  }
 })
