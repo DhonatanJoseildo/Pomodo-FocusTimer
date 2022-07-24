@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 
-  --bg-color: #FFFFFF;
 }
 
 :root{
@@ -15,20 +14,57 @@ html{
 }
 
 body{
+  --bg-color: #FFFFFF;
+  --bg-secondary-color: #E1E1E6;
+  --bg-hover-active:#02799D;
+  --button-color: #323238;
+  --timer-color: #000000;
+  --button-secondary-color: #ffffff;
+
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   min-height: 100vh;
+
+  background-color: var(--bg-color);
 }
 
 main{
   min-height: 100vh;
   display: flex;
+  position: relative;
 }
 
 button{
   border: none;
-  background-color: #FFFFFF;
+  background-color: var(--primary-color);
   cursor: pointer;
+}
+
+/*========= dark mode ==========*/
+body.dark-mode{
+  --bg-color: #000000;
+  --bg-secondary-color: #29292E;
+  --bg-hover-active:#0A3442;
+  --timer-color: #ffffff;
+  --button-color: #C4C4CC;
+  --button-secondary-color: #ffffff;
+
+  background-color: var(--bg-color);
+}
+
+.light-day, .night{
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+
+  cursor: pointer;
+}
+
+.light-day svg path, .night svg path{
+  fill: var(--timer-color);
+}
+.hide{
+  display: none;
 }
 
 main .container{
@@ -45,6 +81,7 @@ main .container{
   line-height: 14.785rem;
   margin-bottom: 1.7rem;
   display: flex;
+  color: var(--timer-color);
 }
 
 #controls{
@@ -60,25 +97,27 @@ main .container{
 }
 
 .bg-button button svg path:first-child{
-  fill: #E1E1E6;
+  fill: var(--bg-secondary-color);
 }
 
 .bg-button button:hover svg path:first-child,
 .bg-button button.check svg path:first-child{
-  fill: #02799D;
+  fill: var(--bg-hover-active);
 }
 
 .bg-button button svg path:last-child{
-  fill: #323238;
+  fill: var(--button-color);
 }
 
 .bg-button button:hover svg path:last-child,
 .bg-button button.check svg path:last-child{
-  fill: white;
+  fill: var(--button-secondary-color);
 }
 
-.bg-button button.check svg path:first-child
+#controls button svg path{
+  fill: var(--button-color);
+}
 
 #controls button:hover svg path{
-  fill: #02799D;
+  fill: var(--bg-hover-active);
 }

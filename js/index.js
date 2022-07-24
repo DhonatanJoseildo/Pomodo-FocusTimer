@@ -38,6 +38,7 @@ function countDown() {
 
     countDown()
   }, 1000);
+
 }
 
 function updateDisplay(newMinutes, seconds) {
@@ -70,6 +71,7 @@ function decreaseTimer() {
 }
 
 buttonPlay.addEventListener('click', () => {
+  
   countDown()
 })
 
