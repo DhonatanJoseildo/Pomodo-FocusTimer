@@ -20,6 +20,7 @@ body{
   --button-color: #323238;
   --timer-color: #000000;
   --button-secondary-color: #ffffff;
+  --button-controls-color: #02799D;
 
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -48,11 +49,12 @@ body.dark-mode{
   --timer-color: #ffffff;
   --button-color: #C4C4CC;
   --button-secondary-color: #ffffff;
+  --button-controls-color: #ffffff;
 
   background-color: var(--bg-color);
 }
 
-.light-day, .night{
+.lightDay, .night{
   position: absolute;
   top: 6rem;
   right: 6rem;
@@ -60,7 +62,7 @@ body.dark-mode{
   cursor: pointer;
 }
 
-.light-day svg path, .night svg path{
+.lightDay svg path, .night svg path{
   fill: var(--timer-color);
 }
 .hide{
@@ -96,6 +98,20 @@ main .container{
   gap: 3.2rem;
 }
 
+.bg-button button{
+  position: relative;
+}
+
+.bg-button button .inputVol{
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+}
+
+.bg-button button .inputVol input{
+  max-width: 9rem;
+}
+
 .bg-button button svg path:first-child{
   fill: var(--bg-secondary-color);
 }
@@ -119,5 +135,5 @@ main .container{
 }
 
 #controls button:hover svg path{
-  fill: var(--bg-hover-active);
+  fill: var(--button-controls-color);
 }

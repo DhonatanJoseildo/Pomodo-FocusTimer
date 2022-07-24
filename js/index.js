@@ -13,6 +13,15 @@ const buttonRain = document.querySelector('.rain')
 const buttonCoffeeShop = document.querySelector('.coffeeShop')
 const buttonFireplace = document.querySelector('.fireplace')
 
+const buttonbgColorLight = document.querySelector('.lightDay')
+const buttonbgColorDark = document.querySelector('.night')
+const bgBody = document.querySelector('body')
+
+const volForest = document.getElementById('forest')
+const volRain = document.getElementById('rain')
+const volCoffee = document.getElementById('coffee')
+const volFire = document.getElementById('fire')
+
 let timerTimeOut;
 let minutes = Number(minutesDisplay.textContent)
 
@@ -71,7 +80,6 @@ function decreaseTimer() {
 }
 
 buttonPlay.addEventListener('click', () => {
-  
   countDown()
 })
 
@@ -94,10 +102,14 @@ buttonForest.addEventListener('click', () => {
   buttonFireplace.classList.remove('check')
 
   if (buttonForest.classList.contains('check')) {
-    sounds.audioForest()
+    if (volForest.value == 1) {
+      volForest.value = 50
+    }
+    sounds.audioForest(volForest)
   }else{
     sounds.bgAudioForest.pause()
   }
+
 })
 
 buttonRain.addEventListener('click', () => {
@@ -107,7 +119,7 @@ buttonRain.addEventListener('click', () => {
   buttonFireplace.classList.remove('check')
 
   if (buttonRain.classList.contains('check')) {
-    sounds.audioRain()
+    sounds.audioRain(volRain)
   }else{
     sounds.bgAudioRain.pause()
   }
@@ -119,7 +131,7 @@ buttonCoffeeShop.addEventListener('click', () => {
   buttonFireplace.classList.remove('check')
 
   if (buttonCoffeeShop.classList.contains('check')) {
-    sounds.audioCoffee()
+    sounds.audioCoffee(volCoffee)
   }else{
     sounds.bgAudioCoffeeShop.pause()
   }
@@ -131,8 +143,20 @@ buttonFireplace.addEventListener('click', () => {
   buttonCoffeeShop.classList.remove('check')
 
   if (buttonFireplace.classList.contains('check')) {
-    sounds.audioFire()
+    sounds.audioFire(volFire)
   }else{
     sounds.bgAudioFireplace.pause()
   }
+})
+
+buttonbgColorLight.addEventListener('click', () => {
+  buttonbgColorLight.classList.add('hide')
+  buttonbgColorDark.classList.remove('hide')
+  bgBody.classList.add('dark-mode')
+})
+
+buttonbgColorDark.addEventListener('click', () => {
+  buttonbgColorLight.classList.remove('hide')
+  buttonbgColorDark.classList.add('hide')
+  bgBody.classList.remove('dark-mode')
 })

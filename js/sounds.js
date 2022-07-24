@@ -6,25 +6,29 @@ export default function(){
   const bgAudioCoffeeShop = new Audio('../audio/Cafeteria.wav')
   const bgAudioFireplace = new Audio('../audio/Lareira.wav')
 
-  function audioForest() {
+  function audioForest(vol) {
+    bgAudioForest.volume = vol.value / 100
     bgAudioForest.play()
     bgAudioRain.pause()
     bgAudioCoffeeShop.pause()
     bgAudioFireplace.pause()
   }
-  function audioRain() {
+  function audioRain(vol) {
+    bgAudioRain.volume = vol.value / 100
     bgAudioRain.play()
     bgAudioForest.pause()
     bgAudioCoffeeShop.pause()
     bgAudioFireplace.pause()
   }
-  function audioCoffee() {
+  function audioCoffee(vol) {
+    bgAudioCoffeeShop.volume = vol.value / 100
     bgAudioCoffeeShop.play()
     bgAudioForest.pause()
     bgAudioRain.pause()
     bgAudioFireplace.pause()
   }
-  function audioFire() {
+  function audioFire(vol) {
+    bgAudioFireplace.volume = vol.value / 100
     bgAudioFireplace.play()
     bgAudioForest.pause()
     bgAudioRain.pause()
