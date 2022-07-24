@@ -6,6 +6,11 @@ export default function(){
   const bgAudioCoffeeShop = new Audio('../audio/Cafeteria.wav')
   const bgAudioFireplace = new Audio('../audio/Lareira.wav')
 
+  bgAudioForest.loop = true
+  bgAudioRain.loop = true
+  bgAudioCoffeeShop.loop = true
+  bgAudioFireplace.loop = true
+
   function audioForest(vol) {
     bgAudioForest.volume = vol.value / 100
     bgAudioForest.play()
