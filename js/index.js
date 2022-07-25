@@ -24,6 +24,7 @@ const events = Events()
 
 
 buttonPlay.addEventListener('click', () => {
+  sounds.pressAudio()
   buttonPlay.classList.toggle('running')
   if (buttonPlay.classList.contains('running')) {
     timer.countDown()
@@ -33,15 +34,18 @@ buttonPlay.addEventListener('click', () => {
 })
 
 buttonStop.addEventListener('click', () => {
+  sounds.pressAudio()
   buttonPlay.classList.remove('running')
   timer.resetTimer()
 })
 
 buttonAdd.addEventListener('click', () => {
+  sounds.pressAudio()
   timer.addTimer()
 })
 
 buttonDecrease.addEventListener('click', () => {
+  sounds.pressAudio()
   timer.decreaseTimer()
 })
 

@@ -1,5 +1,7 @@
 
 export default function(){
+  const buttonPressAudio = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
+  const kitchenTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
   
   const bgAudioForest = new Audio('../audio/Floresta.wav')
   const bgAudioRain = new Audio('../audio/Chuva.wav')
@@ -10,6 +12,14 @@ export default function(){
   bgAudioRain.loop = true
   bgAudioCoffeeShop.loop = true
   bgAudioFireplace.loop = true
+
+  function timeEnd() {
+    kitchenTimer.play()
+  }
+
+  function pressAudio() {
+    buttonPressAudio.play()
+  }
 
   function audioForest(vol) {
     bgAudioForest.volume = vol.value / 100
@@ -47,7 +57,9 @@ export default function(){
     bgAudioForest,
     bgAudioRain,
     bgAudioCoffeeShop,
-    bgAudioFireplace
+    bgAudioFireplace,
+    pressAudio,
+    timeEnd
   }
 }
 

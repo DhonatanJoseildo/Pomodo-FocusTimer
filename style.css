@@ -21,6 +21,7 @@ body{
   --timer-color: #000000;
   --button-secondary-color: #ffffff;
   --button-controls-color: #02799D;
+  --button-volume-color: #323238;
 
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -50,6 +51,7 @@ body.dark-mode{
   --button-color: #C4C4CC;
   --button-secondary-color: #ffffff;
   --button-controls-color: #ffffff;
+  --button-volume-color: #ffffff;
 
   background-color: var(--bg-color);
 }
@@ -112,6 +114,32 @@ main .container{
   max-width: 9rem;
 }
 
+.bg-button button .inputVol input[type="range"]{
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  height: 4px;
+  background: var(--button-volume-color);
+}
+
+.bg-button button .inputVol input[type="range"]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 25px;
+  background: var(--button-volume-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.bg-button button.check .inputVol input[type="range"]::-webkit-slider-thumb,
+.bg-button button.check .inputVol input[type="range"]{
+  background: var(--button-secondary-color);
+}
+
+.bg-button button:hover .inputVol input[type="range"]::-webkit-slider-thumb,
+.bg-button button:hover .inputVol input[type="range"]{
+  background: var(--button-secondary-color);
+}
+
 .bg-button button svg path:first-child{
   fill: var(--bg-secondary-color);
 }
@@ -136,4 +164,16 @@ main .container{
 
 #controls button:hover svg path{
   fill: var(--button-controls-color);
+}
+
+@media (max-width: 1024px){
+  main .lightDay, main .night{
+    top: 2rem;
+    right: 2rem;
+  }
+
+  body main .container {
+    flex-direction: column;
+    gap: 10rem;
+  }
 }
