@@ -6,6 +6,7 @@ import { Timer } from "./timer.js";
 
 const {
   buttonPlay,
+  buttonPause,
   buttonStop,
   buttonAdd,
   buttonDecrease,
@@ -22,21 +23,23 @@ const sounds = Sounds()
 const timer = Timer()
 const events = Events()
 
-
+// butão de controles te tempo
 buttonPlay.addEventListener('click', () => {
   sounds.pressAudio()
-  buttonPlay.classList.toggle('running')
-  if (buttonPlay.classList.contains('running')) {
-    timer.countDown()
-  }else{
-    timer.hold()
-  }
+  controls.playTimer()
+  timer.countDown()
+})
+
+buttonPause.addEventListener('click', () => {
+  sounds.pressAudio()
+  controls.reset()
+  timer.hold()
 })
 
 buttonStop.addEventListener('click', () => {
   sounds.pressAudio()
-  buttonPlay.classList.remove('running')
   timer.resetTimer()
+  controls.reset()
 })
 
 buttonAdd.addEventListener('click', () => {
@@ -49,6 +52,8 @@ buttonDecrease.addEventListener('click', () => {
   timer.decreaseTimer()
 })
 
+
+// butão controle de audio / fundo musical
 buttonForest.addEventListener('click', () => {
   controls.playForest()
   events.validationVolForest(sounds)
@@ -69,6 +74,8 @@ buttonFireplace.addEventListener('click', () => {
   events.validationVolFire(sounds)
 })
 
+
+// butão de controle tema (background) light / dark 
 buttonbgColorLight.addEventListener('click', () => {
   controls.bgLight()
 })

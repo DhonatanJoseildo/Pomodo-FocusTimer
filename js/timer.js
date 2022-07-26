@@ -1,11 +1,13 @@
 import { Elements } from "./elements.js";
 import Sounds from "./sounds.js";
+import { Controls } from "./controls.js";
 
 const {
   minutesDisplay,
   secondsDisplay
 } = Elements
 const sounds = Sounds()
+const controls = Controls()
 
 let timerTimeOut;
 let minutes = Number(minutesDisplay.textContent)
@@ -18,6 +20,7 @@ export function Timer() {
       
       if (minutes <= 0 && seconds <= 0) {
         sounds.timeEnd()
+        controls.reset()
         return
       }
   

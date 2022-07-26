@@ -1,6 +1,8 @@
 import { Elements } from "./elements.js";
 
 const {
+  buttonPlay,
+  buttonPause,
   buttonForest,
   buttonRain,
   buttonCoffeeShop,
@@ -51,7 +53,19 @@ export function Controls() {
     bgBody.classList.remove('dark-mode')
   }
 
+  function playTimer() {
+    buttonPlay.classList.add('hide')
+    buttonPause.classList.remove('hide')
+  }
+
+  function reset() {
+    buttonPause.classList.add('hide')
+    buttonPlay.classList.remove('hide')
+  }
+
   return {
+    playTimer,
+    reset,
     playForest,
     playRain,
     playCoffee,

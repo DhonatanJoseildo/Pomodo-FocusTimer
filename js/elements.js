@@ -1,4 +1,5 @@
 const buttonPlay = document.querySelector('.play')
+const buttonPause = document.querySelector('.pause')
 const buttonStop = document.querySelector('.stop')
 const buttonAdd = document.querySelector('.addition')
 const buttonDecrease = document.querySelector('.decrease')
@@ -22,6 +23,7 @@ const volFire = document.getElementById('fire')
 
 export const Elements = {
   buttonPlay,
+  buttonPause,
   buttonStop,
   buttonAdd,
   buttonDecrease,
